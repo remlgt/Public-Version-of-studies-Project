@@ -25,10 +25,12 @@ And the last was the Lead Developper who was the Boostrap Referent and made the 
 
 ## STEP I : starting and Spint 0
 
-We started to work by making a model of our app, wireframes, the mobile aspect, the user stories, as well as the MCD. You'll can find some of these documents on the folder "DocsAbouts". We made a data dictionary to describe all types of data used in app. And to finish we have planned the CRUD method for our data way in MCD & Database.
+- Design ideas & made the doc
+
+    -We started to work by making a model of our app, wireframes, the mobile aspect, the user stories, as well as the MCD. You'll can find some of these documents on the folder "DocsAbouts". We made a data dictionary to describe all types of data used in app. And to finish we have planned the CRUD method for our data way in MCD & Database.
 
 
-## STEP 2 : Sprint 1
+##  STEP 2 : Sprint 1
 
 - Creation of entities and profile pages :
 
@@ -37,7 +39,7 @@ We started to work by making a model of our app, wireframes, the mobile aspect, 
     - Design the display can show that on ScreenShot folder.
     - CRUD your profil and not antoher one. 
 
-## STEP 3 : Sprint 2
+##  STEP 3 : Sprint 2
 
 - Starting the Back Office and Security
 
