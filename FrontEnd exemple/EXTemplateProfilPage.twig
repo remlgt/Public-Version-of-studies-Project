@@ -1,0 +1,154 @@
+{% extends 'base.html.twig'%}
+
+
+
+{% block title %} Mon profil {% endblock %}
+
+{% block body %}
+
+<div class="BodyProfil">
+<div class=" profil-display affichage-profil  container">
+    <div class="Profil">
+    <h1 class="titreduProfil text-center mt-5">Mon Profil</h1>
+            <div class="page-content page-container" id="page-content">
+                <div class="paddingProfil">
+                    <div class="row container d-flex justify-content-center ">
+                        <div class="col-xl-6 col-md-12">
+                            <div class="carteProfil carte card user-card-full p-md-5">
+                                <div class="row m-l-0 m-r-0">
+                                    <div class="col-sm-4 bg-c-lite-green user-profile ">
+                                        <div class="carte-bloq card-block text-center text-white">
+
+                                            <div class="m-b-25"> <img src="{{ asset('/uploads/images/'~app.user.pictureProfil)}}" class="imgCover img-radius" alt="User-Profile-Image"> </div>
+                                            <h6 class="f-w-600">{{ app.user.surname }}</h6>
+                                            <p>de {{ app.user.regiontolive }} </p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>                  
+                                        </div>
+            <div class="text-center ">
+
+                <a class="text-center btn btn-warning text-dark m-3"
+                        type="button" href="{{ path('user_edit', {'id':app.user.id}) }}">
+                    Modifier mon profil
+                </a>              
+                <form method="post" action="{{ path('user_delete', {'id': app.user.id}) }}" onsubmit="return confirm('Veuillez supprimer l intégralité de vos bières avant de supprimer votre profil, êtes vous bien sûr de vouloir supprimer votre profil ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                    <button class="text-center btn btn-warning text-dark m-3"> Supprimer mon profil</button>
+                </form>
+                  <a class="text-center btn btn-warning text-dark m-3"
+                        type="button"
+                        href="{{ path('beer_new') }}">
+                    Ajouter une bière
+                    {# {{ path('beer_new',  {slug: app.user.slug}) }} #}
+                </a>
+                  <a class="text-center btn btn-warning text-dark m-3"
+                        type="button"
+                        href="{{ path('add_actuality',  {'id': app.user.id}) }}">
+                          
+                   Ajouter un événement
+                </a>
+            </div>
+        </div>
+                                    <div class="col-sm-8">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20 p-b-5 b-b-default f-w-600 mt-3">Information</h6>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                     <p class="m-b-10 f-w-600">Email</p>
+                                                    <h6 class="text-muted f-w-400">{{ app.user.email }}</h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Bio</p>
+                                                        <h6 class="text-muted f-w-400">{{ app.user.bio }}</h6>
+                                                    </div>
+                                                </div>
+
+                                            <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"> Vos bières</h6>
+                                            <div class="row">
+
+                                            
+
+                                                </div>
+                                                
+                                                {% for beer in beers %}
+                                          
+                                                            <div class="htmlListBeerUserPrfl">
+                                                                <div class="bodyListBeerUserPrfl">
+                                                                    <section class="ListBeerUserPrfl">
+                                                                        <div>
+                                                                            <ul class="check-listbodyListBeerUserPrfl">
+
+                                                                            <li> <a href="{{ path('beer_details', {slug:beer.slug}) }}" class="btn">{{beer.name}} </a></li>
+                                                                            
+                                                                            </ul>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+  
+                                                {% endfor %}
+          
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>      
+                        </div>
+                   
+
+
+                          <div  class= " col-xl-6 ">
+
+                                        <section class="carousselHtml ">
+
+                                                <h3  class="h1carou">Faites glisser les bières</h3>
+ 
+                                                            <div class="container d-flex justify-content-center">
+
+                                                                <div class="card-carousel">
+
+
+                                                                   
+                                                                        {% for beer in beers %}
+                                                                            
+
+                                                                          {%  if loop.index < 4 %}   
+                                                                            
+                                                                                <div class="card" id="{{beer.id}}" >
+
+                                                                                    <div class="image-container" style="background-image:url('{{ asset('/uploads/images/'~beer.picture)}}')"></div>
+                                                                                    <h2 class="BrName"> {{beer.name}}</h2>
+                                                                                    <p>{{beer.description}}</p> 
+                                                                                    
+                                                                                </div>
+                                                                         {% endif %}
+                                                                        {% endfor %} 
+
+                                                                </div>                                                             
+                                                            </div>                                                          
+                                        </section>
+
+                                <div class="dflex justify-content-center">
+                                            <a class="text-center ButtonHdrNav text-dark m-3"
+                                               type="button"
+                                               href="{{ path('stat_list') }}">
+                                               Voir mes bières
+                                            </a>
+                                                   <a class="text-center ButtonHdrNav text-dark m-3"
+                                               type="button"
+                                               href="{{ path('user_actu_list') }}">
+                                              Voir mes actualités
+                                            </a>
+
+                                </div>              
+                             </div> 
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+       
+<script src={{ asset('asset/JS/Carousel.js') }}></script>
+
+{% endblock %}
