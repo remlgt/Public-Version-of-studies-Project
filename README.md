@@ -39,6 +39,8 @@ We started to work by making a model of our app, wireframes, the mobile aspect, 
 
 ## STEP 3 : Sprint 2
 
+- Starting the Back Office and Security
+
     - Build a back-office with Bootstrap ( ex. on CodeSnippet).
     - Manage access-control ( Private )
     - Assignment of an admin and Super-admin role. 
@@ -46,6 +48,8 @@ We started to work by making a model of our app, wireframes, the mobile aspect, 
     - Start responsive design and other design for front-end (ex. ScreenShot & Frontend).
 
 ## STEP 4 : Last Sprint 
+
+- Check the Beta version of the app
 
     - Patch some bugs or vulnerabilites like : " access to the update profil page other that one's own was made impossible ".
     - Many test performed : Register -> Login -> Read the wrong login -> Say it & retry -> Connect the good account -> Update profile with new profile picture  -> share new beer -> leave commentary -> disconnect.
